@@ -1,0 +1,43 @@
+.option {
+    float: right;
+    margin-right: 10px;
+}
+.container-fluid {
+    width: 80vw;
+    top: 4vh;
+}
+.container-fluid carousel {
+    width: 100%;
+    height: 100%;
+}
+.container-fluid carousel .list-inline {
+    margin-top: 2rem;
+    justify-content: center;
+    display: flex;
+}
+.container-fluid carousel .list-inline li {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    background: white;
+    border-radius: 40px;
+    text-align: center;
+    font-size: 1.2rem;
+    margin-left: 5px;
+    margin-right: 5px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+.container-fluid carousel .list-inline li.selected {
+    background: lightgreen;
+}
+.container-fluid carousel .list-inline li .choice-selected {
+    height: 70%;
+    object-fit: cover;
+}
+.container-fluid .question-count {
+    float: left;
+}
+.carousel-indicators {
+    display: block;
+}

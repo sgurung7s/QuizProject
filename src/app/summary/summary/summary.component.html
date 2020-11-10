@@ -1,0 +1,17 @@
+<div class="summary text-center" [@flyInDown]="'in'">
+    <br>
+    <div class="summary-section">
+      <h1 class="heading">Summary</h1>
+      <p>{{summary}}</p>
+      <h4>Explanation</h4>
+      <li *ngFor="let exp of explanation">
+        {{exp}}
+     </li>
+      <ul class="actions">
+        <li>
+          <a class="button special" (click)="reset()">Take Quiz again</a>
+        </li>
+  
+      </ul>
+    </div>
+  </div>

@@ -1,0 +1,34 @@
+<div class="option">
+  <label> Auto next slide</label>
+  <input #ctrl="ngModel" [(ngModel)]='option' type='checkbox'>
+</div>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-2 col-xs-2"></div>
+    <div class="col-md-8 col-xs-10">
+      <!--To be used for Embeding-->
+      <carousel [interval]="-1" [(activeSlide)]="activeSlideIndex" *ngIf="!showSummary">
+        <slide *ngFor="let question of questions; let i = index">
+          <bq-question
+            class="group"
+            *ngIf="activeSlideIndex == i"
+            [question]="question"
+            (selectedChoice)="onSelected(i, $event)"
+            [selected]="selections[i]"></bq-question>
+          <ul class="list-inline">
+            <li
+              *ngFor="let question of questions; let i = index"
+              (click)="changeActiveSlide(i)"
+              [@pageState]="activeSlideIndex == i ? 'active' : 'inactive'"
+              [ngClass]="{'selected': selections[i] != null}">
+              <span [hidden]="selections[i] != null">{{i}}</span>
+              <img class="choice-selected" [hidden]="selections[i] == null" src="../assets/images/checked.png">
+            </li>
+          </ul>
+        </slide>
+      </carousel>
+
+      <bq-summary *ngIf="showSummary" [summary]="getSummary()" [explanation]="getExplanation()" (resetQuiz)="resetQuiz()"></bq-summary>
+    </div>
+  </div>
+</div>
